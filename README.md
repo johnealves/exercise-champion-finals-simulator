@@ -7,7 +7,7 @@ Após feito o fork, clone o repositório criado para o seu computador.
 
 Rode o npm install.
 
-Vá para a branch main do seu projeto e execute o comando:
+Vá para a branch main do seu projeto e execute o comando: git checkout -b exercise
 
 COMEÇANDO OS EXERCÍCIOS
 
