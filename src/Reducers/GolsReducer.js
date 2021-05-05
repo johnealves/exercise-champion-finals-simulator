@@ -1,8 +1,8 @@
 const INITIAL_STATE = {
-  maschesterCity: '',
-  PSG: '',
-  realMadrid: '',
-  chelsea: ''
+  maschesterCityGols: '',
+  PSGGols: '',
+  realMadridGols: '',
+  chelseaGols: ''
 }
 
 const GolsReducer = (state = INITIAL_STATE, action) => {
@@ -10,7 +10,7 @@ const GolsReducer = (state = INITIAL_STATE, action) => {
   case "SET_GOLS":
     return {
       ...state,
-      [action.club]: action.gols,
+      [action.name]: action.gols,
     }
   default:
     return state;

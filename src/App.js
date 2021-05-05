@@ -2,12 +2,12 @@ import React from 'react';
 import './App.css';
 import Champion from './Champion';
 import FinalChampios from './FinalChampions';
-import SemiFinal from './SemiFinal';
+import SemiFinalChampions from './SemiFinalChampions';
 
 function App() {
   return (
     <div>
-      <SemiFinal />
+      <SemiFinalChampions />
       <FinalChampios />
       <Champion />
     </div>

@@ -1,6 +1,6 @@
-export const setGols = (club, gols) => ({
+export const setGols = (name, gols) => ({
   type: 'SET_GOLS',
-  club,
+  name,
   gols,
 })
 

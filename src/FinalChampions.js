@@ -13,24 +13,24 @@ class FinalChampios extends React.Component {
   }
 
   firstFinalist() {
-    const { maschesterCity, PSG, setFirstFinalist } = this.props;
-    if (maschesterCity > PSG) {
+    const { maschesterCityGols, PSGGols, setFirstFinalist } = this.props;
+    if (maschesterCityGols > PSGGols) {
       setFirstFinalist('Manchester City');
       return 'Manchester City';
     }
-    if (PSG > maschesterCity) {
+    if (PSGGols > maschesterCityGols) {
       setFirstFinalist('PSG');
       return 'PSG';
     } 
   }
 
   secondFinalist() {
-    const { realMadrid, chelsea, setSecondFinalist } = this.props;
-    if (realMadrid > chelsea) {
+    const { realMadridGols, chelseaGols, setSecondFinalist } = this.props;
+    if (realMadridGols > chelseaGols) {
       setSecondFinalist('Real Madrid');
       return 'Real Madrid';
     } 
-    if (chelsea > realMadrid) {
+    if (chelseaGols > realMadridGols) {
       setSecondFinalist('Chelsea')
       return 'Chelsea';
     } 
@@ -38,25 +38,35 @@ class FinalChampios extends React.Component {
 
   handleGols({ target }) {
     const { SetFinalistsGols } = this.props;
-    const { id, value } = target;
-    SetFinalistsGols(id, value)
+    const { name, value } = target;
+    SetFinalistsGols(name, value)
   }
 
   render() {
-    const { maschesterCity, PSG, realMadrid, chelsea } = this.props;
+    const { maschesterCityGols, PSGGols, realMadridGols, chelseaGols } = this.props;
     return (
       <div className="finalGame">
         <div className="firstFinalist">
           <label htmlFor="firstFinalist">
-            {(maschesterCity && PSG) ? this.firstFinalist(): 'Primeiro finalista'}
-            <input type="text" id="firstFinalistGols" onChange={ this.handleGols } />
+            {(maschesterCityGols && PSGGols) ? this.firstFinalist(): 'Primeiro finalista'}
+            <input
+              type="text"
+              id="firstFinalist"
+              name="firstFinalistGols"
+              onChange={ this.handleGols }
+            />
           </label>
         </div>
         <span>X</span>
         <div className="secondFinalist">
           <label htmlFor="secondFinalist">
-            <input type="text" id="secondFinalistGols" onChange={ this.handleGols } />
-            {(realMadrid && chelsea) ? this.secondFinalist(): 'Segundo finalista'}
+            <input
+              type="text"
+              id="secondFinalist"
+              name="secondFinalistGols"
+              onChange={ this.handleGols }
+            />
+            {(realMadridGols && chelseaGols) ? this.secondFinalist(): 'Segundo finalista'}
           </label>
         </div>
       </div>
@@ -64,17 +74,10 @@ class FinalChampios extends React.Component {
   }
 }
 
-const mapStateToProps = ({ GolsReducer }) => ({
-  maschesterCity: GolsReducer.maschesterCity,
-  PSG: GolsReducer.PSG,
-  realMadrid: GolsReducer.realMadrid,
-  chelsea: GolsReducer.chelsea,
-})
-
 const mapDispatchToProps = (dispatch) => ({
   setFirstFinalist: (name) => dispatch(setFirstFinalist(name)),
   setSecondFinalist: (name) => dispatch(setSecondFinalist(name)),
-  SetFinalistsGols: (id, gols) => dispatch(SetFinalistsGols(id, gols))
+  SetFinalistsGols: (name, gols) => dispatch(SetFinalistsGols(name, gols))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(FinalChampios);
+export default connect(null, mapDispatchToProps)(FinalChampios);
