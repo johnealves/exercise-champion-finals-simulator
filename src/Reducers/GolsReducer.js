@@ -1,8 +1,8 @@
 const INITIAL_STATE = {
-  maschesterCity: '',
-  PSG: '',
-  realMadrid: '',
-  chelsea: ''
+  maschesterCityGols: '',
+  PSGGols: '',
+  realMadridGols: '',
+  chelseaGols: ''
 }
 
 const GolsReducer = (state = INITIAL_STATE, action) => {

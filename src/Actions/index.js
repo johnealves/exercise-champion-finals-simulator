@@ -14,8 +14,8 @@ export const setSecondFinalist = (name) => ({
   name,
 })
 
-export const SetFinalistsGols = (id, gols) => ({
+export const SetFinalistsGols = (name, gols) => ({
   type: 'SET_FINALIST_GOLS',
-  id,
+  name,
   gols,
 })

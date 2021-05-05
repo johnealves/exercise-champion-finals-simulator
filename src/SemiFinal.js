@@ -11,7 +11,8 @@ class SemiFinal extends React.Component {
 
   handleGols({ target }) {
     const {  setGols } = this.props;
-    setGols(target.id, target.value)
+    const { name, value } = target;
+    setGols(name, value)
   }
 
   render() {
@@ -20,21 +21,21 @@ class SemiFinal extends React.Component {
         <div className="firstSemi">
           <label htmlFor="maschesterCity">
             Machester City
-            <input type="text" id="maschesterCity" onChange={ this.handleGols }/>
+            <input type="text" name="maschesterCityGols" id="maschesterCity" onChange={ this.handleGols }/>
           </label>
           <label htmlFor="PSG">
             PSG
-            <input type="text" id="PSG" onChange={ this.handleGols }/>
+            <input type="text" name="PSGGols" id="PSG" onChange={ this.handleGols }/>
           </label>
         </div>
         <div className="secondSemi">
           <label htmlFor="realMadrid">
             Real Madrid
-            <input type="text" id="realMadrid" onChange={ this.handleGols }/>
+            <input type="text" name="realMadridGols" id="realMadrid" onChange={ this.handleGols }/>
           </label>
           <label htmlFor="Chelsea">
             Chelsea
-            <input type="text" id="chelsea" onChange={ this.handleGols }/>
+            <input type="text" name="chelseaGols" id="chelsea" onChange={ this.handleGols }/>
           </label>
         </div>
       </div>

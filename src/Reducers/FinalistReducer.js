@@ -20,7 +20,7 @@ const FinalistReducer = (state = INITIAL_STATE, action) => {
   case 'SET_FINALIST_GOLS':
     return {
       ...state,
-      [action.id]: action.gols,
+      [action.name]: action.gols,
     }
   default:
     return state;
