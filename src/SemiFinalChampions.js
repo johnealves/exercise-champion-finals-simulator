@@ -8,7 +8,7 @@ class SemiFinal extends React.Component {
   }
 
   handleGols({ target }) {
-    const { name, value } = target
+    
   }
 
   render() {
